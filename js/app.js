@@ -1,5 +1,6 @@
 /* selectores */
 const resultado = document.querySelector('#resultado')
+const year = document.querySelector('#year')
 
 
 /* event listeners */
@@ -10,6 +11,7 @@ document.addEventListener('DOMContentLoaded', initApp)
 function initApp()
 {
     mostrarAutos()
+    loadAnios()
 }
 
 function mostrarAutos()
@@ -23,4 +25,15 @@ function mostrarAutos()
 
         resultado.appendChild(autoHTML)
     })
+}
+
+function loadAnios()
+{
+    const max = new Date().getFullYear() // obtiene el año actual
+    const min = max - 10
+    for (let i = max; i > min; i--) {
+        year.innerHTML += `
+            <option value="${i}">${i}</option>
+        `
+    }
 }
